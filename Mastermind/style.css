@@ -1,0 +1,186 @@
+body{
+    /* background-color: rgb(96, 132, 240); */
+    background-image: linear-gradient(white, pink);
+    height: 100vh;
+}
+h2{
+    text-align: center;
+    color: #012B64;
+    font-family: 'Handjet', cursive;
+    font-size: 40px;
+}
+h3{
+    color:#012B64;
+    font-family: cursive;
+    text-align: center;
+    margin: 15px;
+}
+/* --------------------------------- */
+.main{
+    margin: 2%;
+    display: flex;
+    justify-content: center;
+}
+.game{
+    width: 350px;
+    border: 4px solid #d26083;
+    border-radius: 2%;
+    background-color: rgb(254, 244, 244);
+    display: flex;
+}
+/* .color-palette{
+    margin: 2%;
+    height: 90%;
+    width: 10%;
+} */
+/* ----------------------------------------- */
+.guess-palette{
+    height: 90%;
+    width: 350px;
+    border: none;
+    border-radius: 2%;
+}
+.hint-palette{
+    margin-left: 20px;
+    width: 20%;
+    border: none;
+    border-radius: 15%;
+    background-color: lightgray;;
+}
+.user-guess{
+    margin: 5%;
+    height: 40px;
+    width: 90%;
+    /* border: 1px solid red; */
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+
+}
+/* #answer{
+    visibility: hidden;
+} */
+.ans{
+    height: 32px;
+    color: whitesmoke;
+    font-weight: bold;
+    font-size: 30px;
+    font-family: sans-serif;
+    text-align: center;
+    padding-top: 3px;
+    width: 32px;
+    border: 2px solid rgb(16, 0, 0);
+    background-color: rgb(66, 65, 65);
+    border-radius: 50%;
+    cursor: pointer;
+    margin: 10px;
+}
+.choice{
+    height: 35px;
+    width: 35px;
+    border: 2px solid rgb(11, 0, 0);
+    color: rgb(105, 102, 102);
+    background-color: rgb(105, 102, 102);
+    border-radius: 50%;
+    cursor: pointer;
+    margin: 10px;
+}
+.choice:hover{
+    transition: 0ms all ease-in-out;
+    background-color: black;
+    color: black;
+}
+.color-palette {
+    margin: 5%;
+    height: 200px;
+    border: 4px solid #d26083;
+    border-radius: 5%;
+    background-color: rgb(254, 244, 244);
+}
+.color-palette-1 {
+    display: flex;
+    margin-left: 15%;
+}
+.colors{
+    height: 40px;
+    width: 40px;
+    margin:5px;
+    border-radius: 50%;
+    border: 3px solid black;
+    cursor: pointer;
+}
+.colors-1{
+    background-color: red;
+    color:  red;
+}
+.colors-2{
+    background-color: blue;
+    color:  blue;
+}
+.colors-3{
+    background-color: rgb(55, 226, 55);
+    color: rgb(55, 226, 55);
+}
+.colors-4{
+    background-color: yellow;
+    color: yellow;
+}
+.colors-5{
+    background-color: pink;
+    color: pink;
+}
+.colors-6{
+    background-color: white;
+    color: white;
+}
+.colors-7{
+    background-color: purple;
+    color: purple;
+}
+.colors-8{
+    background-color: orange;
+    color: orange;
+}
+
+.hint{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+.hint-inner{
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    border: 2px solid rgb(16, 1, 1);
+    background-color: lightgray; 
+    margin: 5px;
+}
+
+
+@media screen and (max-width: 600px) {
+    .color-palette {
+        flex-direction: column;
+        height: 90%;
+    }
+    .color-palette-1 {
+        flex-direction: column;
+    }
+}
+
+@media screen and (max-width: 400px) {
+    .color-palette {
+        flex-direction: column;
+        height: 90%;
+    }
+    .color-palette-1 {
+        flex-direction: column;
+    }
+    .user-guess {
+        width: 100%;
+    }
+    .color-palette-1 {
+        margin-left: 5%;
+    }
+}
+
+

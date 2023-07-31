@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MasterMind</title>
     <link rel="stylesheet" type="text/css" href="style.css">
-    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <link rel="icon" type="image/x-icon" href="mastermindFavicon.webp">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -22,11 +22,7 @@
                     <div class="ans">?</div>
                     <div class="ans">?</div>
                 </div>
-                <div class="user-guess 10">
-                    <!-- <div class="choice"></div>
-                    <div class="choice"></div>
-                    <div class="choice"></div>
-                    <div class="choice"></div> -->
+                <div class="user-guess 10 disabled" id="guess10">
                     <button class="choice" aria-label="choice-10 A"></button>
                     <button class="choice" aria-label="choice-10 B"></button>
                     <button class="choice" aria-label="choice-10 C"></button>
@@ -35,14 +31,12 @@
                         <div class="hint" id="hint10">
                             <div class="hint-inner"></div>
                             <div class="hint-inner"></div>
-                        </div>
-                        <div class="hint">
                             <div class="hint-inner"></div>
                             <div class="hint-inner"></div>
                         </div>
                     </div>
                 </div>
-                <div class="user-guess 9">
+                <div class="user-guess 9 disabled" id="guess9">
                     <button class="choice" aria-label="choice-9 A"></button>
                     <button class="choice" aria-label="choice-9 B"></button>
                     <button class="choice" aria-label="choice-9 C"></button>
@@ -51,46 +45,40 @@
                         <div class="hint" id="hint9">
                             <div class="hint-inner"></div>
                             <div class="hint-inner"></div>
-                        </div>
-                        <div class="hint">
                             <div class="hint-inner"></div>
                             <div class="hint-inner"></div>
                         </div>
                     </div>
                 </div>
-                <div class="user-guess 8">
+                <div class="user-guess 8 disabled" id="guess8">
                     <button class="choice" aria-label="choice-8 A"></button>
                     <button class="choice" aria-label="choice-8 B"></button>
                     <button class="choice" aria-label="choice-8 C"></button>
                     <button class="choice" aria-label="choice-8 D"></button>
-                    <div class="hint-palette" id="hint8">
-                        <div class="hint">
+                    <div class="hint-palette" >
+                        <div class="hint" id="hint8">
                             <div class="hint-inner" ></div>
                             <div class="hint-inner"></div>
-                        </div>
-                        <div class="hint">
                             <div class="hint-inner"></div>
                             <div class="hint-inner"></div>
                         </div>
                     </div>
                 </div>
-                <div class="user-guess 7">
+                <div class="user-guess 7 disabled" id="guess7">
                     <button class="choice" aria-label="choice-7 A"></button>
                     <button class="choice" aria-label="choice-7 B"></button>
                     <button class="choice" aria-label="choice-7 C"></button>
                     <button class="choice" aria-label="choice-7 D"></button>
-                    <div class="hint-palette" id="hint7">
-                        <div class="hint">
+                    <div class="hint-palette" >
+                        <div class="hint" id="hint7">
                             <div class="hint-inner"></div>
                             <div class="hint-inner"></div>
-                        </div>
-                        <div class="hint">
                             <div class="hint-inner"></div>
                             <div class="hint-inner"></div>
                         </div>
                     </div>
                 </div>
-                <div class="user-guess 6">
+                <div class="user-guess 6 disabled" id="guess6">
                     <button class="choice" aria-label="choice-6 A"></button>
                     <button class="choice" aria-label="choice-6 B"></button>
                     <button class="choice" aria-label="choice-6 C"></button>
@@ -99,14 +87,12 @@
                         <div class="hint" id="hint6">
                             <div class="hint-inner"></div>
                             <div class="hint-inner"></div>
-                        </div>
-                        <div class="hint">
                             <div class="hint-inner"></div>
                             <div class="hint-inner"></div>
                         </div>
                     </div>
                 </div>
-                <div class="user-guess 5">
+                <div class="user-guess 5 disabled" id="guess5">
                     <button class="choice" aria-label="choice-5 A"></button>
                     <button class="choice" aria-label="choice-5 B"></button>
                     <button class="choice" aria-label="choice-5 C"></button>
@@ -115,14 +101,12 @@
                         <div class="hint" id="hint5">
                             <div class="hint-inner"></div>
                             <div class="hint-inner"></div>
-                        </div>
-                        <div class="hint">
                             <div class="hint-inner"></div>
                             <div class="hint-inner"></div>
                         </div>
                     </div>
                 </div>
-                <div class="user-guess 4">
+                <div class="user-guess 4 disabled" id="guess4">
                     <button class="choice" aria-label="choice-4 A"></button>
                     <button class="choice" aria-label="choice-4 B"></button>
                     <button class="choice" aria-label="choice-4 C"></button>
@@ -131,14 +115,12 @@
                         <div class="hint" id="hint4">
                             <div class="hint-inner"></div>
                             <div class="hint-inner"></div>
-                        </div>
-                        <div class="hint">
                             <div class="hint-inner"></div>
                             <div class="hint-inner"></div>
                         </div>
                     </div>
                 </div>
-                <div class="user-guess 3">
+                <div class="user-guess 3 disabled" id="guess3">
                     <button class="choice" aria-label="choice-3 A"></button>
                     <button class="choice" aria-label="choice-3 B"></button>
                     <button class="choice" aria-label="choice-3 C"></button>
@@ -147,40 +129,34 @@
                         <div class="hint" id="hint3">
                             <div class="hint-inner"></div>
                             <div class="hint-inner"></div>
-                        </div>
-                        <div class="hint">
                             <div class="hint-inner"></div>
                             <div class="hint-inner"></div>
                         </div>
                     </div>
                 </div>
-                <div class="user-guess 2">
+                <div class="user-guess 2 disabled" id="guess2">
                     <button class="choice" aria-label="choice-2 A"></button>
                     <button class="choice" aria-label="choice-2 B"></button>
                     <button class="choice" aria-label="choice-2 C"></button>
                     <button class="choice" aria-label="choice-2 D"></button>
-                    <div class="hint-palette" id="hint2">
-                        <div class="hint">
+                    <div class="hint-palette" >
+                        <div class="hint" id="hint2">
+                            <div class="hint-inner" ></div>
                             <div class="hint-inner"></div>
-                            <div class="hint-inner"></div>
-                        </div>
-                        <div class="hint">
                             <div class="hint-inner"></div>
                             <div class="hint-inner"></div>
                         </div>
                     </div>
                 </div>
-                <div class="user-guess 1">
+                <div class="user-guess 1" id="guess1">
                     <button class="choice" aria-label="choice-1 A"></button>
                     <button class="choice" aria-label="choice-1 B"></button>
                     <button class="choice" aria-label="choice-1 C"></button>
                     <button class="choice" aria-label="choice-1 D"></button>
-                    <div class="hint-palette">
+                    <div class="hint-palette" >
                         <div class="hint" id="hint1">
                             <div class="hint-inner"></div>
                             <div class="hint-inner"></div>
-                        </div>
-                        <div class="hint">
                             <div class="hint-inner"></div>
                             <div class="hint-inner"></div>
                         </div>
@@ -190,23 +166,25 @@
             
         </div>
         <!-- ---------------------------------------------------------- -->
-        <div class="color-palette">
-            <h3>Drag And Drop To Pick Color</h3>
-            <div class="color-palette-1">
-                <button class="colors-1 colors" draggable="true" id="red">a</button>
-                <button class="colors-2 colors" draggable="true" id="blue">a</button>
-                <button class="colors-3 colors" draggable="true" id="green">a</button>
-                <button class="colors-4 colors" draggable="true" id="yellow">a</button>
-            </div>
-            <div class="color-palette-1">
-                <button class="colors-5 colors" draggable="true" id="pink">a</button>
-                <button class="colors-6 colors" draggable="true" id="white">a</button>
-                <button class="colors-7 colors" draggable="true" id="purple">a</button>
-                <button class="colors-8 colors" draggable="true" id="orange">a</button>
+        <div>
+            <button class="subBtn">CHECK</button>
+            <div class="color-palette">
+                <h3>Drag And Drop To Pick Color</h3>
+                <div class="color-palette-1">
+                    <button class="colors-1 colors" draggable="true" id="red">a</button>
+                    <button class="colors-2 colors" draggable="true" id="blue">a</button>
+                    <button class="colors-3 colors" draggable="true" id="green">a</button>
+                    <button class="colors-4 colors" draggable="true" id="yellow">a</button>
+                </div>
+                <div class="color-palette-1">
+                    <button class="colors-5 colors" draggable="true" id="pink">a</button>
+                    <button class="colors-6 colors" draggable="true" id="white">a</button>
+                    <button class="colors-7 colors" draggable="true" id="purple">a</button>
+                    <button class="colors-8 colors" draggable="true" id="orange">a</button>
+                </div>
             </div>
         </div>
     </div>
-
-    <script src="script.js"></script>
+<script src="script.js"></script>
 </body>
 </html>

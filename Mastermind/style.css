@@ -74,6 +74,7 @@ h3{
     border-radius: 50%;
     cursor: pointer;
     margin: 10px;
+    /* display: none; */
 }
 .choice{
     height: 35px;
@@ -183,4 +184,56 @@ h3{
     }
 }
 
+.subBtn{
+    height: 30px;
+    margin-left: 5%;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    color: whitesmoke;
+    background-color: #d26083;
+    font-weight: bold;
+    font-family: sans-serif;
+}
+.subBtn:hover{
+    background-color: #a40a38;
+    transition: 1s;
+}
 
+.disabled{
+    pointer-events: none;
+    opacity: 0.5;
+}
+
+.red{
+	background-color: red;
+  }
+
+  .white{
+	background-color: white;
+  }
+
+  .color-picker {
+    position: absolute;
+    top: -140px;
+    left: 50%;
+    transform: translateX(-35%);
+    display: none;
+    display: flex;
+    flex-wrap: wrap;
+    width: 120px;
+    justify-content: space-between;
+    /* border: 2px solid black; */
+    background-color: rgb(236, 196, 208);
+    border-radius: 5%;
+    border: 4px solid #d26083;
+}
+  
+.color-option {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    margin: 5px;
+    border: 2px solid black;
+    cursor: pointer;
+}

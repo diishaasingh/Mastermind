@@ -1,7 +1,8 @@
 const colorOptions = document.querySelectorAll('.colors');
 const playButtons = document.querySelectorAll('.choice');
-const userGuesses = document.querySelectorAll('.user-guess');
 const checkButton = document.querySelector('.subBtn');
+const restartButton = document.querySelector('.playAgain');
+const userGuesses = document.querySelectorAll('.user-guess');
 
 const colorObject={"red":1,"blue":2,"green":3,"yellow":4,"pink":5,"white":6,"purple":7,"orange":8};
 
@@ -36,13 +37,23 @@ function mapNumberToColor(numberArray) {
 const computerNumber = generateUniqueCode();
 const colorArray = mapNumberToColor(computerNumber);  //computer generated
 
-
 //displaying the random color
+
+function displayRandomColor(){
 const div = document.querySelectorAll('.ans');
 for(let i=0;i<div.length;i++){
     const backgroundColor=colorArray[i];
     div[i].style.backgroundColor=backgroundColor;
     div[i].style.color=backgroundColor;
+}
+}
+
+//displayRandomColor();
+
+//restart game
+function restartGame(){
+   window.location.reload();
+   saveUsernameToLocalStorage();
 }
 
 //taking color from user-guess
@@ -50,36 +61,52 @@ const selectedColors = [];
 
 // Function to get bulls and cows
 let result = [];
+
 function getBullsAndCows(userGuess, computerNumber) {
-    //creating the hint object
-    const hint = {
-      bull: "red",
-      cow: "white"
-    };
-  
-    const bullsAndCows = { bulls: 0, cows: 0 }; //another object to count bulls and cows
-  
-    for (let i = 0; i < 4; i++) {
-      if (computerNumber[i] === userGuess[i]) {
-        bullsAndCows.bulls++;
-      } else {
-        for (let j = 0; j < 4; j++) {
-          if (computerNumber[i] === userGuess[j]) {
-            bullsAndCows.cows++;
-            break;
-          }
+  //creating the hint object
+  const hint = {
+    bull: "red",
+    cow: "white"
+  };
+
+  const bullsAndCows = { bulls: 0, cows: 0 }; //another object to count bulls and cows
+
+  for (let i = 0; i < 4; i++) {
+    if (computerNumber[i] === userGuess[i]) {
+      bullsAndCows.bulls++;
+    } else {
+      for (let j = 0; j < 4; j++) {
+        if (computerNumber[i] === userGuess[j]) {
+          bullsAndCows.cows++;
+          break;
         }
       }
     }
-    for (let i = 0; i < bullsAndCows.bulls; i++) {
-      result.push(hint.bull); // Push red color for each bull
-    }
-    for (let i = 0; i < bullsAndCows.cows; i++) {
-      result.push(hint.cow); // Push white color for each cow
-    }
-    return result;
-}
+  }
+  for (let i = 0; i < bullsAndCows.bulls; i++) {
+    result.push(hint.bull); // Push red color for each bull
+  }
+  for (let i = 0; i < bullsAndCows.cows; i++) {
+    result.push(hint.cow); // Push white color for each cow
+  }
   
+  let count = 0;
+  for (let i = 0; i < 4; i++) {
+    if (result[i] === "red") {
+        count++;
+    }
+    if (count === 4) {
+        const savedUsername = localStorage.getItem('username');
+        const username = savedUsername ? ` ${savedUsername}` : '';
+        window.alert(`Congratulations${username}!!! You won.`);
+        saveUsernameToLocalStorage();
+        displayRandomColor();
+        result = [];
+        break;
+    }
+  }
+}
+
 //Shuffle array function
 function shuffleArray(array) {
     for (var i = array.length - 1; i > 0; i--) { 
@@ -88,7 +115,6 @@ function shuffleArray(array) {
         array[i] = array[j];
         array[j] = temp;
     }
-       
     return array;
  }
 
@@ -122,7 +148,7 @@ function handleDrop(event) {
 }
 
 
-// //displaying bull cow in the one designated
+//displaying bull cow in the one designated
 let num = 1;
   function checkGuesses() {
     let currentRoundID = `guess${num}`;
@@ -136,22 +162,25 @@ let num = 1;
     const buttons = currentRoundDiv.querySelectorAll('.user-guess button');
     buttons.forEach(button => {
       let color = button.style.backgroundColor;
-       selectedColors.push(color);
+      selectedColors.push(color);
     });
     result.length=0;
     getBullsAndCows(selectedColors,colorArray);
     addHints(shuffleArray(result),num);
     num++;
     if(num==11){
-        window.alert("Oh!! You failed to guess the color.Better luck next time!!");
-        return;
+        window.alert(`Oh!! You failed to guess the color.Better luck next time!!The correct color combination was (${colorArray.join(', ')}).`);
+        displayPlayerName();
+        displayRandomColor();
+        //window.location.reload();
+        //return;
     }
     selectedColors.length = 0;
     currentRoundID = `guess${num}`;
     currentRoundDiv = document.getElementById(currentRoundID);
     console.log(currentRoundDiv);
     currentRoundDiv.classList.remove("disabled");
-  }
+}
 
 
 function addHints(result, num) {
@@ -173,34 +202,57 @@ function addHints(result, num) {
     }
   }
 
-  }
+}
+
+//add to loacl storage
+function saveUsernameToLocalStorage() {
+    const PlayerName = prompt('Please enter your name:');
+    if (PlayerName) {
+        localStorage.setItem('PlayerName', PlayerName);
+        alert(`Thanks "${PlayerName} for providing your Name"`);
+    } else {
+        alert('No username found');
+    }
+}
+
+//add to dom
+function displayPlayerName() {
+    const savedPlayerName = localStorage.getItem('PlayerName');
+    const PlayerNameDisplayElement = document.getElementById('PlayerNameDisplay');
+    if (savedPlayerName) {
+        PlayerNameDisplayElement.textContent = `Player Name :- ${savedPlayerName}!`;
+    } else {
+        PlayerNameDisplayElement.textContent = `Welcome, Guest!`;
+    }
+}
 
 checkButton.addEventListener('click', checkGuesses);
+restartButton.addEventListener('click',restartGame);
 
 // Saving data in local storage
-function saveDataInLocalStorage() {
-    localStorage.setItem("selectedColors", JSON.stringify(selectedColors));
-    localStorage.setItem("result", JSON.stringify(result));
-}
+// function saveDataInLocalStorage() {
+//     localStorage.setItem("selectedColors", JSON.stringify(selectedColors));
+//     localStorage.setItem("result", JSON.stringify(result));
+// }
 
 // Loading data from local storage
-function loadDataFromLocalStorage() {
-    const selectedColorsData = localStorage.getItem("selectedColors");
-    const resultData = localStorage.getItem("result");
+// function loadDataFromLocalStorage() {
+//     const selectedColorsData = localStorage.getItem("selectedColors");
+//     const resultData = localStorage.getItem("result");
 
-    if (selectedColorsData) {
-        selectedColors = JSON.parse(selectedColorsData);
-    }
-    if (resultData) {
-        result = JSON.parse(resultData);
-    }
-}
+//     if (selectedColorsData) {
+//         selectedColors = JSON.parse(selectedColorsData);
+//     }
+//     if (resultData) {
+//         result = JSON.parse(resultData);
+//     }
+// }
 
-// Adding event listener to the "Check" button to save data before checking
-checkButton.addEventListener('click',saveDataInLocalStorage);
+// // Adding event listener to the "Check" button to save data before checking
+// checkButton.addEventListener('click',saveDataInLocalStorage);
 
 
-// Adding an event listener to the window to load data when the page loads
-window.addEventListener('DOMContentLoaded', () => {
-    loadDataFromLocalStorage();
-});
+// // Adding an event listener to the window to load data when the page loads
+// window.addEventListener('DOMContentLoaded', () => {
+//     loadDataFromLocalStorage();
+// });

@@ -41,6 +41,7 @@ h3{
     border-radius: 2%;
 }
 .hint-palette{
+    display: none;
     margin-left: 20px;
     width: 20%;
     border: none;
@@ -57,9 +58,7 @@ h3{
     justify-content: center;
 
 }
-/* #answer{
-    visibility: hidden;
-} */
+
 .ans{
     height: 32px;
     color: whitesmoke;
@@ -98,17 +97,45 @@ h3{
     border-radius: 5%;
     background-color: rgb(254, 244, 244);
 }
-#PlayerNameDisplay{
-    color:#012B64;
-    font-family: cursive;
-    text-align: center;
-    margin: 15px;
-    margin: 5%;
-    height: 200px;
-    border: 4px solid #d26083;
-    border-radius: 5%;
-    background-color: rgb(254, 244, 244);
+
+table {
+    margin: 20px auto;
+    border-collapse: collapse;
+    width: 20%;
 }
+h1{
+    text-align: center;
+    color: #012B64;
+    font-family: cursive;
+    font-size: 40px;
+} 
+th {
+    background-color: #d26083;
+    color: white;
+    font-weight: bold;
+    padding: 10px;
+    text-align: center;
+}
+  
+td {
+    padding: 8px;
+    border: 1px solid #d26083;
+    text-align: center;
+    font-family: cursive;
+    font-size: 20px;
+    color: #012B64;
+}
+
+tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+#PlayerNameDisplay {
+    margin: 20px;
+    border-radius: 5%;
+    display: none;
+}
+  
 .color-palette-1 {
     display: flex;
     margin-left: 15%;
@@ -195,9 +222,10 @@ h3{
     }
 }
 
-.subBtn{
+.check1,.check2,.check3,.check4,.check5,.check6,.check7,.check8,.check9,.check10,.back{
     height: 30px;
-    margin-left: 5%;
+    margin-top: 4%;
+    margin-left: 6%;
     border-radius: 5px;
     border: none;
     cursor: pointer;
@@ -206,10 +234,11 @@ h3{
     font-weight: bold;
     font-family: sans-serif;
 }
-.subBtn:hover{
+.check1,.check2,.check3,.check4,.check5,.check6,.check7,.check8,.check9,.check10:hover{
     background-color: #a40a38;
     transition: 1s;
 }
+
 
 .disabled{
     pointer-events: none;
@@ -248,7 +277,7 @@ h3{
     border: 2px solid black;
     cursor: pointer;
 }
-.playAgain{
+.playAgain,.checkScore{
     height: 30px;
     margin-left: 5%;
     border-radius: 5px;
